@@ -19,3 +19,7 @@ df_reviews = pd.read_json(StringIO(jsonl_content), lines=True)
 print(df_reviews.shape)
 print(df_reviews.dtypes)
 print(df_reviews.head())
+
+# questions 5
+#print(df_reviews["_moderation_score"].head())
+#print(df_reviews["_sentiment_raw"].head())

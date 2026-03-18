@@ -36,4 +36,46 @@ Pour les ips : "print(df["_last_ip"].unique())"
 
 4. In order_line_items.csv, does line_total_usd ≈ unit_price_usd × quantity?
    ( on va devoir vérifier que c' est vrai pour cahque ligne )
-   => oui c est le cas , sorti : True "print(((df["line_total_usd"] - df["unit_price_usd"] \* df["quantity"]).abs() < 0.0001).all())"
+   => oui c est le cas , sorti : True avec "print(((df["line_total_usd"] - df["unit_price_usd"] \* df["quantity"]).abs() < 0.0001).all())"
+
+5. In reviews.jsonl, which columns start with \_? What do \_moderation_score and \_sentiment_raw look like?
+   On a les champs suivants :
+
+- moderation_score float64
+- sentiment_raw float64
+- toxicity_score float64
+- language_detected str
+- review_source str
+
+Pour lees colonnes \_moderation_score et \_sentiment_raw sont des valeurs numeriques de type float comprises entre 0 et 1 ( je suppose), représentant respectivement un score de modération et un score de sentiment calculé automatiquement:
+[5 rows x 20 columns]
+0 0.3321
+1 0.2997
+2 0.4848
+3 0.1966
+4 0.8811
+Name: \_moderation_score, dtype: float64
+0 0.8989
+1 0.7068
+2 0.6897
+3 0.9925
+4 0.6270
+Name: \_sentiment_raw, dtype: float64
+(venv) ethan@ethan-Zenbook:~/Documents/
+
+6. In the clickstream Parquet file, what does the event*type column contain? What *-columns exist?
+   une seule valeur de event-type:
+   ['pageview']
+   Length: 1
+   ( ce qui signifie que tous les événements correspondent à des vues de page)
+
+Voici les columns :
+
+- ga_client_id str
+- gtm_container_id str
+- dom_interactive_ms int64
+- dom_complete_ms int64
+- ttfb_ms int64
+- connection_type str
+- js_heap_size_mb float64
+- consent_string str

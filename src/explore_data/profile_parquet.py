@@ -28,3 +28,6 @@ df_click = table.to_pandas()
 print(df_click.shape)
 print(df_click.dtypes)
 print(df_click.head())
+
+# questions 6
+print(df_click["event_type"].unique())
